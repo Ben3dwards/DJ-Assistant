@@ -1,0 +1,35 @@
+{
+  "name": "dj-assistant-v2",
+  "version": "1.0.0",
+  "description": "LLM-driven DJ assistant MCP server",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "build/server.js",
+  "bin": {
+    "mcp-dj-assistant": "./build/server.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start:mcp": "node build/server.js",
+    "start:web": "node build/webServer.js",
+    "dev": "tsc --watch"
+  },
+  "files": [
+    "build"
+  ],
+  "keywords": [],
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.7.0",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.95.2",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "dotenv": "^17.4.2",
+    "marked": "^18.0.3",
+    "mysql2": "^3.22.3",
+    "zod": "^4.4.3"
+  }
+}

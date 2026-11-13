@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracks — DJ Assistant</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+        .tracks-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            overflow: hidden;
+        }
+
+        .tracks-header {
+            margin-bottom: 16px;
+        }
+
+        .tracks-header h1 {
+            margin: 0 0 16px 0;
+            font-size: 1.4rem;
+        }
+
+        .filters {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filters input {
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: none;
+            background: #2d2f39;
+            color: white;
+            font-size: 0.9rem;
+            width: 220px;
+        }
+
+        .filters input::placeholder {
+            color: #888;
+        }
+
+        .track-count {
+            margin: 12px 0 0 0;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .table-wrapper {
+            flex: 1;
+            overflow-y: auto;
+            margin-top: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            background: #171717;
+            padding: 10px 12px;
+            text-align: left;
+            color: #1db954;
+            font-weight: 600;
+            border-bottom: 1px solid #333;
+        }
+
+        thead th[data-column] {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        thead th[data-column]:hover {
+            color: white;
+        }
+
+        thead th.sort-asc::after {
+            content: " ↑";
+        }
+
+        thead th.sort-desc::after {
+            content: " ↓";
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        tbody tr:hover {
+            background: #2d2f39;
+        }
+
+        tbody td {
+            padding: 10px 12px;
+            color: #ccc;
+        }
+
+        tbody td a {
+            color: #1db954;
+            text-decoration: none;
+        }
+
+        tbody td a:hover {
+            text-decoration: underline;
+        }
+
+        .loading {
+            color: #888;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+
+        <aside class="sidebar">
+            <h2>DJ Assistant</h2>
+            <nav>
+                <a href="/">Chat</a>
+                <a href="/tracks">Tracks</a>
+                <a href="/about">About</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <div class="tracks-content">
+
+                <div class="tracks-header">
+                    <h1>Track Database</h1>
+                    <div class="filters">
+                        <input id="search-track" type="text" placeholder="Search by track name..." />
+                        <input id="search-artist" type="text" placeholder="Filter by artist..." />
+                    </div>
+                    <p class="track-count" id="track-count">Loading...</p>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-column="track_name">Track</th>
+                                <th data-column="track_artists">Artist</th>
+                                <th data-column="year">Year</th>
+                                <th data-column="tempo">BPM</th>
+                                <th>Key</th>
+                                <th data-column="energy">Energy</th>
+                                <th>Spotify</th>
+                            </tr>
+                        </thead>
+                        <tbody id="track-table-body">
+                            <tr>
+                                <td colspan="7" class="loading">Loading tracks...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <script src="/js/tracks.js"></script>
+</body>
+</html>

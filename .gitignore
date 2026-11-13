@@ -48,6 +48,13 @@ web_modules/
 # TypeScript cache
 *.tsbuildinfo
 
+# TypeScript build output
+build/
+dist/
+
+#local session data (Contains SpotifyTokens)
+data/session.json
+
 # Optional npm cache directory
 .npm
 

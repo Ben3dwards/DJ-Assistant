@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About DJ Assistant</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+        .about-content {
+            max-width: 720px;
+            padding: 40px;
+            line-height: 1.7;
+        }
+
+        .about-content h1 {
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        .about-content h2 {
+            margin-top: 32px;
+            font-size: 1.2rem;
+            color: #1db954;
+        }
+
+        .about-content p {
+            color: #ccc;
+        }
+
+        .about-content a {
+            color: #1db954;
+            text-decoration: none;
+        }
+
+        .about-content a:hover {
+            text-decoration: underline;
+        }
+
+        .camelot-img {
+            margin-top: 24px;
+            max-width: 100%;
+            border-radius: 12px;
+        }
+
+        .scoring-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .scoring-list li {
+            background: #2d2f39;
+            padding: 12px 16px;
+            border-radius: 8px;
+            color: #ccc;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .scoring-list li span {
+            color: #1db954;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+
+        <aside class="sidebar">
+            <h2>DJ Assistant</h2>
+            <nav>
+                <a href="/">Chat</a>
+                <a href="/tracks">Tracks</a>
+                <a href="/about">About</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <div class="about-content">
+
+                <h1>About DJ Assistant</h1>
+
+                <p>
+                    DJ Assistant is an AI-powered tool designed to help DJs build harmonically
+                    compatible setlists, search new tracks or recomend track from a local drum and bass track database.
+                </p>
+
+                <p>
+                    It uses an AI language model to interpret your requests and call
+                    the appropriate tools. Occasionally the model will ignore its tools and
+                    respond from memory instead. This means it may confidently tell you a
+                    setlist has been exported to Spotify when it has not actually done so.
+                </p>
+
+                <p>
+                    If this happens, simply tell it off. Responses like "use your tools" or
+                    "actually export it" are enough to get it back on track. The model responds
+                    well to being corrected.
+                </p>
+
+                <h2>How it works</h2>
+
+                <p>
+                    When you ask for a setlist, DJ Assistant starts from the track you give it and
+                    repeatedly finds the next best track using a scoring algorithm. Each
+                    candidate track is scored against the current track across four dimensions:
+                </p>
+
+                <ul class="scoring-list">
+                    <li>Harmonic compatibility (Camelot wheel)</li>
+                    <li>Energy similarity</li>
+                    <li>Danceability similarity</li>
+                    <li>Tempo / BPM similarity</li>
+                </ul>
+
+                <p>
+                    The tool also keeps recommendations within a ±4 year window of the current
+                    track to maintain era coherence: liquid funk from 2006 won't be mixed with
+                    neurofunk from 2018.
+                </p>
+
+                <h2>Harmonic mixing and the Camelot Wheel</h2>
+
+                <p>
+                    Harmonic mixing is the practice of only mixing tracks that share compatible
+                    musical keys. The Camelot Wheel makes this visual - each position on the
+                    wheel represents a key, and adjacent positions mix well together.
+                </p>
+
+                <p>
+                    For a full guide to harmonic mixing, visit
+                    <a href="https://mixedinkey.com/harmonic-mixing-guide/" target="_blank" rel="noopener">
+                        Mixed In Key's Harmonic Mixing Guide
+                    </a>.
+                </p>
+
+
+
+            </div>
+        </main>
+
+    </div>
+</body>
+</html>
