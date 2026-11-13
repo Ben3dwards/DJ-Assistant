@@ -86,3 +86,32 @@ CREATE TABLE tracks (
     spotify_URL    VARCHAR(255)
 );
 ```
+
+## Running on Claude Desktop
+The tools live in a standalone MCP server, they aren't tied to my web app. The same server also runs inside **Claude Desktop**, which is how the early iterations were tested before the web front end existed.
+**Using it in Claude Desktop (optional)**
+
+After running `npm run build`, add this to your `claude_desktop_config.json`:
+
+```
+json
+{
+  "mcpServers": {
+    "dj-assistant": {
+      "command": "node",
+      "args": ["/absolute/path/to/project/build/server.js"],
+      "env": {
+        "DB_HOST": "localhost",
+        "DB_USER": "...",
+        "DB_PASSWORD": "...",
+        "DB_NAME": "...",
+        "SPOTIFY_CLIENT_ID": "...",
+        "SPOTIFY_CLIENT_SECRET": "...",
+        "SONGSTATS_API_KEY": "..."
+      }
+    }
+  }
+}
+```
+
+Restart Claude Desktop and the four tools will be available in chat. Exporting to Spotify still needs a login through the web app first.
